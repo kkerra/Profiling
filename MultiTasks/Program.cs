@@ -5,23 +5,33 @@ class Program
 {
     static void Main()
     {
-        Task[] tasks = new Task[10];
-        for (int i = 0; i < 10; i++)
+        Console.WriteLine("Starting multi-threaded computation...");
+
+        int numberOfTasks = 10;
+        Task[] tasks = new Task[numberOfTasks];
+
+        for (int i = 0; i < numberOfTasks; i++)
         {
             int taskNumber = i;
-            tasks[i] = Task.Run(() => PerformTask(taskNumber));
+            tasks[i] = Task.Run(() => PerformComputation(taskNumber));
         }
+
+        // Ждем завершения всех задач
         Task.WaitAll(tasks);
+
         Console.WriteLine("All tasks completed.");
     }
 
-    static void PerformTask(int taskNumber)
+    static void PerformComputation(int taskNumber)
     {
         double result = 0;
-        for (int i = 0; i < 1000000; i++)
+
+        // Выполнение ресурсоемкой операции
+        for (int i = 0; i < 1_000_000; i++)
         {
-            result += Math.Sqrt(i * taskNumber);
+            result += Math.Sqrt(i * taskNumber) * Math.Sin(i);
         }
+
         Console.WriteLine($"Task {taskNumber} completed with result {result}");
     }
 }

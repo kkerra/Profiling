@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ReyRom
+﻿namespace ReyRom
 {
     public static class Sorting
     {
@@ -42,6 +36,28 @@ namespace ReyRom
             }
             if (left < j) QuickSort(data, left, j);
             if (i < right) QuickSort(data, i, right);
+        }
+    }
+}
+
+namespace kkerra
+{
+    public static class Sorting
+    {
+        public static void InsertSort(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                int key = array[i];
+                int j = i - 1;
+
+                while (j >= 0 && array[j] > key)
+                {
+                    array[j + 1] = array[j];
+                    j--;
+                }
+                array[j + 1] = key;
+            }
         }
     }
 }

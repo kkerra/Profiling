@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 class Program
 {
@@ -7,16 +8,30 @@ class Program
         Console.WriteLine("Starting memory analysis...");
 
         // Создание объектов большой размерности
+        Stopwatch stopwatch = Stopwatch.StartNew();
         CreateLargeObjects();
+        stopwatch.Stop();
+        Console.WriteLine($"Создание объектов большой размерности: {stopwatch.ElapsedMilliseconds} ms");
+
 
         // Создание объектов маленькой размерности
+        stopwatch = Stopwatch.StartNew();
         CreateSmallObjects();
+        stopwatch.Stop();
+        Console.WriteLine($"Создание объектов маленькой размерности: {stopwatch.ElapsedMilliseconds} ms");
 
         // Создание объектов типа строк
+        stopwatch = Stopwatch.StartNew();
         CreateStringObjects();
+        stopwatch.Stop();
+        Console.WriteLine($"Создание объектов типа строк: {stopwatch.ElapsedMilliseconds} ms");
+
 
         // Создание списков и коллекций
+        stopwatch = Stopwatch.StartNew();
         CreateCollections();
+        stopwatch.Stop();
+        Console.WriteLine($"Создание списков и коллекций: {stopwatch.ElapsedMilliseconds} ms");
 
         Console.WriteLine("Memory analysis completed.");
     }

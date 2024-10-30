@@ -9,7 +9,7 @@
         }
     }
 }
-namespace kyzyalakomkin
+namespace kkerra
 {
     public static class Recursion
     {

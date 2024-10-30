@@ -1,13 +1,17 @@
 ﻿using System;
+using System.Diagnostics;
 
 class Program
 {
     static void Main()
     {
-        //int result = ReyRom.Recursion.Fibonacci(40);
-        //Console.WriteLine($"Fibonacci(40) = {result}");
+        Stopwatch stopwatch = Stopwatch.StartNew();
+        int result = ReyRom.Recursion.Fibonacci(40);
+        stopwatch.Stop();
+        Console.WriteLine($"Fibonacci(40) = {result}, время: {stopwatch.ElapsedMilliseconds}");
 
-        int result = kyzyalakomkin.Recursion.Factorial(10);
-        Console.WriteLine($"Factorial(10) = {result}");
+        stopwatch.Restart();
+        result = kkerra.Recursion.Factorial(10);
+        Console.WriteLine($"Factorial(10) = {result}, время: {stopwatch.ElapsedMilliseconds}");
     }
 }

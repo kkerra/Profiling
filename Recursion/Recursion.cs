@@ -13,10 +13,10 @@ namespace kkerra
 {
     public static class Recursion
     {
-        public static int Factorial(int n)
+        public static int Power(int baseNum, int exponent)
         {
-            if (n <= 1) return n;
-            return n * Factorial(n - 1);
+            if (exponent == 0) return 1;
+            return baseNum * Power(baseNum, exponent - 1);
         }
     }
 
